@@ -12,10 +12,10 @@ time: 30000,
 errors: ['time'],
 })
 .then((collected) => {
-          message.guild.createCategory(`ÖNEMLİ KANALLAR`, 'category');
+          message.guild.createChannel(`ÖNEMLİ KANALLAR`, 'category');
           message.guild.createChannel(`💎-kurallar`);
         message.guild.createChannel(`💎-duyuru`);
-            message.guild.createCategory(`Sohbet Kanalları`, 'category');
+            message.guild.createChannel(`Sohbet Kanalları`, 'category');
           message.guild.createChannel(`💎-oylama`);
         message.guild.createChannel(`💎-Sohbet`);
           message.guild.createChannel(`💎-bot-komut`);
@@ -23,7 +23,7 @@ errors: ['time'],
               message.guild.createChannel(`💎-nsfw`);
               message.guild.createChannel(`💎-gelen-giden`);
               message.guild.createChannel(`mod-log`);
-          message.guild.createCategory(`Ses Kanalları`, 'category')
+          message.guild.createChannel(`Ses Kanalları`, 'category')
         message.guild.createChannel(`╠ ● ɢeɴel ѕoнвeт ①`, 'voice');
           message.guild.createChannel(`╠ ● ɢeɴel ѕoнвeт ②`, 'voice');
         message.guild.createChannel(`╠ ● ɢeɴel ѕoнвeт ③`, 'voice');
