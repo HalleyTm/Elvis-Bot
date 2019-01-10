@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 exports.run = (client, message, args) => {
-	if (message.author.id === "334975384380506112") {
+	if (message.author.id === "466872033230454799") {
 		try {
 		  var code = args.join(" ");
 		  var evaled = eval(code);
@@ -21,7 +21,7 @@ exports.run = (client, message, args) => {
 			  return text;
 		}
 	} else {
-		message.reply('Bu komutu kullanmak için gerekli izine sahip değilsin. (Emirhan Saraç)')
+		message.reply('Bu komutu kullanmak için gerekli izine sahip değilsin.')
 	}
 };
 
