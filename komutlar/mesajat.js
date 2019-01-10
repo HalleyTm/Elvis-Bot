@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
-  if (message.author.id != "459621456612032513") return message.reply('Bunu Sadece Sahibim Kullanabilir');
+  if (message.author.id != "466872033230454799") return message.reply('Bunu Sadece Sahibim Kullanabilir');
       
   if (!message.guild) {
   const ozelmesajuyari = new Discord.RichEmbed()
