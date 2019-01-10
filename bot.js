@@ -46,7 +46,7 @@ client.on('message', async message => {
       if(!d) return console.log("guildStatsChannel")
          const e = message.guild.channels.find(channel => channel.name === `Ping: ${client.ping}`).delete() //|| message.guild.channels.find(channel => channel.name === `Kanal sayısı: ${message.guild.channels.size-1}`).delete() || message.guild.channels.find(channel => channel.name === `Kanal sayısı: ${message.guild.channels.size-1}`).delete() || message.guild.channels.find(channel => channel.name === `Kanal sayısı: ${message.guild.channels.size-2}`).delete()
       if(!e) return console.log("guildStatsChannel")
-            const f = message.guild.channels.find(channel => channel.name === `Yapımcım: Emirhan Saraç`).delete() //|| message.guild.channels.find(channel => channel.name === `Kanal sayısı: ${message.guild.channels.size-1}`).delete() || message.guild.channels.find(channel => channel.name === `Kanal sayısı: ${message.guild.channels.size-1}`).delete() || message.guild.channels.find(channel => channel.name === `Kanal sayısı: ${message.guild.channels.size-2}`).delete()
+            const f = message.guild.channels.find(channel => channel.name === `Yapımcım: Ahmet.Beysss`).delete() //|| message.guild.channels.find(channel => channel.name === `Kanal sayısı: ${message.guild.channels.size-1}`).delete() || message.guild.channels.find(channel => channel.name === `Kanal sayısı: ${message.guild.channels.size-1}`).delete() || message.guild.channels.find(channel => channel.name === `Kanal sayısı: ${message.guild.channels.size-2}`).delete()
       if(!f) return console.log("guildStatsChannel")
                const g = message.guild.channels.find(channel => channel.name === `Kütüphanesi: Discord.js`).delete() //|| message.guild.channels.find(channel => channel.name === `Kanal sayısı: ${message.guild.channels.size-1}`).delete() || message.guild.channels.find(channel => channel.name === `Kanal sayısı: ${message.guild.channels.size-1}`).delete() || message.guild.channels.find(channel => channel.name === `Kanal sayısı: ${message.guild.channels.size-2}`).delete()
       if(!g) return console.log("guildStatsChannel")
@@ -84,7 +84,7 @@ message.guild.createChannel(`Toplam Kanal: ${client.channels.size.toLocaleString
 message.guild.createChannel(`Ping: ${client.ping}`, 'voice')
 .then(channel =>
                    channel.setParent(message.guild.channels.find(channel => channel.name === "Bot Kullanımı")));
-message.guild.createChannel(`Yapımcım: Emirhan Saraç`, 'voice')
+message.guild.createChannel(`Yapımcım: Ahmet.Beysss`, 'voice')
 .then(channel =>
                    channel.setParent(message.guild.channels.find(channel => channel.name === "Bot Kullanımı")));
 message.guild.createChannel(`Kütüphanesi: Discord.js`, 'voice')
