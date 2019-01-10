@@ -34,5 +34,5 @@ exports.conf = {
 exports.help = {
   name: 'dmgönder',
   description: 'Bir kullanýcýya özel mesaj yollar.',
-  usage: 'mesajat'
+  usage: 'dmgonder'
 };
