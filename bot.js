@@ -125,7 +125,6 @@ message.guild.createChannel(`Kütüphanesi: Discord.js`, 'voice')
         })    
     
 }
-});
 
  message.guild.createChannel(`Üye sayısı: ${message.guild.memberCount}`, 'voice')
 .then(channel =>
@@ -139,7 +138,6 @@ message.guild.createChannel(`Kanal sayısı: ${message.guild.channels.size}`, 'v
   message.channel.send(" Sunucu paneli ayarlandı!")
         })
 }
-});
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
