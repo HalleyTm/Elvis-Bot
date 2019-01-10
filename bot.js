@@ -199,6 +199,116 @@ client.unload = command => {
 };
 
 client.on('message', msg => {
+  const reason = msg.content.split(" ").slice(1).join(" ");
+  if (msg.channel.name== 'destek') { 
+    const hatay = new Discord.RichEmbed()
+    .addField(" Hata ", `Bu Sunucuda \`Destek\` Adında Bir Rol Yok!`)
+    .setColor("RANDOM")
+    
+    if (!msg.guild.roles.exists("name", "Destek")) return msg.author.send(hatay) + msg.guild.owner.send(`${msg.guild.name} Adlı Sunucunda, \`Destek\` Adlı Bir Rol Olmadığı İçin, Hiçkimse Destek Talebi Açamıyor!`);
+    if(msg.guild.channels.find('name', 'Talepler')) {
+      msg.guild.createChannel(`destek-${msg.author.id}`, "text").then(c => {
+      const category = msg.guild.channels.find('name', 'Talepler')
+      c.setParent(category.id)
+      let role = msg.guild.roles.find("name", "Destek");
+      let role2 = msg.guild.roles.find("name", "@everyone");
+      c.overwritePermissions(role, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: false
+      });
+      c.overwritePermissions(role2, {
+          SEND_MESSAGES: false,
+          READ_MESSAGES: false
+      });
+      c.overwritePermissions(msg.author, {
+          SEND_MESSAGES: true,
+          READ_MESSAGES: true
+      });
+
+      const embed = new Discord.RichEmbed()
+      .setColor("RANDOM")
+      .setAuthor(`${client.user.username} | Destek Sistemi`)
+      .addField(`Merhaba ${msg.author.username}!`, `Destek Yetkilileri burada seninle ilgilenecektir. \nDestek talebini kapatmak için \`${prefix}kapat\` yazabilirsin.`)
+      .addField(`» Talep Konusu/Sebebi:`, `${msg.content}`, true)
+      .addField(`» Kullanıcı:`, `<@${msg.author.id}>`, true)
+      .setFooter(`${client.user.username} | Destek Sistemi`)
+      .setTimestamp()
+      c.send({ embed: embed });
+      c.send(`<@${msg.author.id}> Adlı kullanıcı "\`${msg.content}\`" sebebi ile destek talebi açtı! Lütfen Destek Ekibini bekle, @here`)
+      msg.delete()
+      }).catch(console.error);
+    }
+  }
+});
+  
+client.on("message", message => {
+if (message.content.toLowerCase().startsWith(prefix + `kapat`)) {
+    if (!message.channel.name.startsWith(`destek-`)) return message.channel.send(`Bu komut sadece Destek Talebi kanallarında kullanılablir!`);
+
+    var deneme = new Discord.RichEmbed()
+    .setColor("RANDOM")
+    .setAuthor(`Destek Talebi Kapatma İşlemi`)
+    .setDescription(`Destek talebini kapatmayı onaylamak için, \n10 saniye içinde \`evet\` yazınız.`)
+    .setFooter(`${client.user.username} | Destek Sistemi`)
+    message.channel.send(deneme)
+    .then((m) => {
+      message.channel.awaitMessages(response => response.content === 'evet', {
+        max: 1,
+        time: 10000,
+        errors: ['time'],
+      })
+      .then((collected) => {
+          message.channel.delete();
+        })
+        .catch(() => {
+          m.edit('Destek Talebi kapatma isteğin zaman aşımına uğradı!').then(m2 => {
+              m2.delete();
+          }, 3000);
+        });
+    });
+}
+});
+
+const Discord = require('discord.js');
+exports.run = (client, message, args) => {
+  if (message.author.id != "297457504328220673") return message.reply('Bunu Sadece Sahibim Kullanabilir');
+      
+  if (!message.guild) {
+  const ozelmesajuyari = new Discord.RichEmbed()
+  .setColor(0xFF0000)
+  .setTimestamp()
+  .setAuthor(message.author.username, message.author.avatarURL)
+  .addField('⚠ Uyarı ⚠', 'Bu  komutu özel mesajlarda kullanamazsın.');
+  return message.author.sendEmbed(ozelmesajuyari); }
+  let guild = message.guild;
+  let reason = args.slice(1).join(' ');
+  let user = message.mentions.users.first();
+  if (reason.length < 1) return message.reply('Ne göndericem onuda yazı ver.');
+  if (message.mentions.users.size < 1) return message.reply('Kime Mesaj atacam onuda yazı ver.').catch(console.error);
+  message.delete();
+  message.reply('✔ | Mesajını Gönderdim.')
+  const embed = new Discord.RichEmbed()
+  .setColor('RANDOM')
+  .setTitle(`**Mesaj Sitemi**`)
+  .setTimestamp()
+  .setDescription(reason);
+  return user.send(embed);
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ['pm','öm'],
+  permlevel: 4
+};
+
+exports.help = {
+  komut: 'özelmesaj',
+  aciklama: 'Bir kullanıcıya özel mesaj yollar.',
+  kullanim: 'özelmesaj'
+};
+
+client.on('message', msg => {
   if (msg.content.toLowerCase() === 'sa') {
     msg.reply('Aleyküm selam,  hoş geldin ^^');
   }
